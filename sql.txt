@@ -1,0 +1,94 @@
+-- crear base de datos abd
+
+CREATE TABLE acceso (
+id SERIAL PRIMARY KEY,
+nombre varchar(20),
+password varchar(25),
+cargo varchar(15)
+);
+
+
+CREATE TABLE categoria(
+id_cat SERIAL primary key,
+nombre_categoria varchar(30)
+);
+
+
+CREATE TABLE cliente(
+cedula SERIAL PRIMARY KEY,
+nombre varchar(25), 
+apellidos varchar(50),
+sexo char(1),
+telefono varchar(18), 
+direccion text,
+email varchar(25), 
+pais varchar(15)
+);
+
+CREATE TABLE empleado(
+id_empleado SERIAL PRIMARY KEY,
+nombre varchar(25),
+apellidos varchar(40),
+sexo char(1),
+telefono varchar(15),
+direccion text,
+email varchar(25),
+fecha_ingreso varchar(15),
+salario numeric(10,2),
+motos_vendidas integer
+);
+
+
+CREATE TABLE proveedores(
+codigo_prov SERIAL PRIMARY KEY,
+nombre varchar(20),
+telefono varchar(15),
+direccion text,
+email varchar(25)
+);
+
+
+CREATE TABLE pedidos(
+codigo_factura serial primary key,
+fecha_compra varchar(15),
+codigo_prov integer,
+nombre_prov varchar(20),
+costo_unidad numeric(10,2),
+cantidad_unidades integer,
+compra_total numeric(10,2),
+registrado char(2)
+);
+ALTER TABLE pedidos
+ADD CONSTRAINT codigo_prov FOREIGN KEY (codigo_prov) REFERENCES
+proveedores (codigo_prov)ON DELETE RESTRICT ON UPDATE CASCADE;
+
+
+CREATE TABLE motocicleta(
+codigo_moto SERIAL PRIMARY KEY,
+marca varchar(20),
+modelo varchar(20),
+color varchar(20),
+id_cat integer,
+codigo_factura integer,
+nombre_proveedor varchar(20),
+costo_unidad numeric(10,2),
+stock integer,
+pv_unidad numeric(10,2)
+);
+
+
+CREATE TABLE venta(
+cedula integer,
+id_empleado integer,
+codigo_moto integer,
+codigo_venta integer,
+cantidad_venta integer,
+precio_venta numeric(10,2),
+valor_total numeric(10,2),
+fecha_venta varchar(15),
+marca_moto varchar(20)
+);
+
+
+
+

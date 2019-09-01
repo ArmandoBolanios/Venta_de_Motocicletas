@@ -1,0 +1,82 @@
+    public void actualizarCompraMoto(int codigo, String marca, String modelo, String color, int idCategoria, int codFactura,
+            String nombreProv, double costoMoto, int stock, double preciovt) {
+        
+        int id = 0;
+        String sql = "UPDATE motocicleta SET marca  = ?,    "
+                + "modelo                           = ?,    "
+                + "color                            = ?,    "
+                + "id_cat                           = ?,    "
+                + "codigo_factura                   = ?,    "
+                + "nombre_proveedor                 = ?,    "
+                + "costo_unidad                     = ?,    "
+                + "stock                            = ?,    "
+                + "pv_unidad                        = ?     "
+                + "WHERE codigo_moto                = ?     ";
+        
+        try {
+            Statement stm = this.getConexion().createStatement();
+            ResultSet reslt = stm.executeQuery("SELECT stock FROM motocicleta WHERE codigo_moto = " + codigo);
+            while(reslt.next()) {
+                id = reslt.getInt(1);
+            }
+        }catch(SQLException e ){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    
+        try {
+            int stockActual = id + stock;
+            PreparedStatement ps = this.getConexion().prepareStatement(sql);
+            ps.setString(1, marca);
+            ps.setString(2, modelo);
+            ps.setString(3, color);
+            ps.setDouble(4, idCategoria);
+            ps.setInt(5, codFactura);
+            ps.setString(6, nombreProv);
+            ps.setDouble(7, costoMoto);
+            ps.setInt(8, stockActual);
+            ps.setDouble(9, preciovt);
+            ps.setInt(10, codigo);
+            ps.executeUpdate();
+        
+            JOptionPane.showMessageDialog(null, " Nueva Compra Actualizada");
+            ps.close();
+            } catch(SQLException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
+        
+        try {
+            PreparedStatement st = this.getConexion().prepareStatement(
+                    "UPDATE pedidos SET registrado = 'Si' WHERE codigo_factura = "+idCategoria+" ");
+            st.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Modelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } 
+
+//--------------------------------------------------------------------------------------------------------------
+
+DEL BOTÓN ACTUALIZAR COMPRA!
+
+ int fil = 0;    
+        
+        if(fila>-1) {
+            int codec = Integer.valueOf(tablaMotocicleta.getValueAt(fila, 0).toString());
+            model.actualizarCompraMoto(codec, getMarca(), getModelo(), getColor(), getPrecio(), getStock(), getCategoria());
+            
+            try { 
+            PreparedStatement st = basedatos.getConexion().prepareStatement(
+                    "UPDATE pedidos SET registrado = 'Si' WHERE codigo_factura = "+cmbListaPedidos.getSelectedItem().toString());
+            st.executeUpdate();
+            
+            int itemCount = cmbListaPedidos.getItemCount();
+            int i = 0;
+            cmbListaPedidos.removeItemAt(i);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Motocicleta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            mostrarDatosMotos();
+            nuevaMoto();
+            
+        } //fin de if

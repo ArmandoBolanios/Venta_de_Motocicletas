@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="iPedidos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="97b299d0-4237-4aa4-a045-90d7586a7441">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     pedidos."codigo_factura" AS pedidos_codigo_factura,
+     pedidos."fecha_compra" AS pedidos_fecha_compra,
+     pedidos."codigo_prov" AS pedidos_codigo_prov,
+     pedidos."nombre_prov" AS pedidos_nombre_prov,
+     pedidos."costo_unidad" AS pedidos_costo_unidad,
+     pedidos."cantidad_unidades" AS pedidos_cantidad_unidades,
+     pedidos."compra_total" AS pedidos_compra_total,
+     pedidos."registrado" AS pedidos_registrado
+FROM
+     "public"."pedidos" pedidos]]>
+	</queryString>
+	<field name="pedidos_codigo_factura" class="java.lang.Integer"/>
+	<field name="pedidos_fecha_compra" class="java.lang.String"/>
+	<field name="pedidos_codigo_prov" class="java.lang.Integer"/>
+	<field name="pedidos_nombre_prov" class="java.lang.String"/>
+	<field name="pedidos_costo_unidad" class="java.lang.Double"/>
+	<field name="pedidos_cantidad_unidades" class="java.lang.Integer"/>
+	<field name="pedidos_compra_total" class="java.lang.Double"/>
+	<field name="pedidos_registrado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="379" height="33" forecolor="#000000" uuid="da321556-3e3d-4a8f-9279-b686e225d2ac"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[REPORTE DE PEDIDOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="b8bfe1cf-d4db-48f4-bc8b-fc529210d2a8"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="52" height="15" uuid="2003a04a-45ea-4a79-abdb-3144fe6c7d12"/>
+				<text><![CDATA[Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="52" y="19" width="65" height="15" uuid="76f88d5a-79af-4620-a212-b35763f5d248"/>
+				<text><![CDATA[Fecha Compra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="134" y="19" width="63" height="15" uuid="83b50a9c-fb92-4838-a797-aa8123a0f13c"/>
+				<text><![CDATA[Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="207" y="19" width="79" height="15" uuid="49c22441-44ef-4823-8966-1807bebb4b8e"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="286" y="19" width="69" height="15" uuid="acd4036e-efa4-494b-9af0-d503ca5ceeaa"/>
+				<text><![CDATA[Costo Unidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="355" y="19" width="59" height="15" uuid="395a3bb7-1f8b-491d-8dfd-d6105fb13d8e"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="19" width="69" height="15" uuid="4720762d-ff6e-4e9b-837b-49b9b7d0d105"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="483" y="19" width="69" height="15" uuid="01be8b3c-b7e1-458e-970e-40af1ea82250"/>
+				<text><![CDATA[Registrado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="93eadcb3-8e74-4ae2-afde-ca77254a03dd"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="52" height="15" uuid="6e5de195-c9dc-4c37-a8de-74939d4d36a5"/>
+				<textFieldExpression><![CDATA[$F{pedidos_codigo_factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="52" y="0" width="65" height="15" uuid="3538987a-2b4a-4d07-af83-f34a229e191c"/>
+				<textFieldExpression><![CDATA[$F{pedidos_fecha_compra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="134" y="0" width="63" height="15" uuid="707ea4c4-4c8b-42fe-9ef9-40d0b5373650"/>
+				<textFieldExpression><![CDATA[$F{pedidos_codigo_prov}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="207" y="0" width="79" height="15" uuid="8e6c4b09-39d9-4482-ae5a-1800655e4c54"/>
+				<textFieldExpression><![CDATA[$F{pedidos_nombre_prov}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="286" y="0" width="69" height="15" uuid="79d6e9f4-2f03-4d2c-9b3b-c344dd769cea"/>
+				<textFieldExpression><![CDATA[$F{pedidos_costo_unidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="355" y="0" width="59" height="15" uuid="aa8ab6f3-8694-4409-a6dd-f566cee48eca"/>
+				<textFieldExpression><![CDATA[$F{pedidos_cantidad_unidades}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="414" y="0" width="69" height="15" uuid="0a53111e-a9fb-458a-acb3-783fc8290e63"/>
+				<textFieldExpression><![CDATA[$F{pedidos_compra_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="483" y="0" width="69" height="15" uuid="6325b61f-4227-4905-84a4-1e8c15e3baf3"/>
+				<textFieldExpression><![CDATA[$F{pedidos_registrado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="2b5e842d-e1fc-4d43-ab9a-26276d615905"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="2750037b-de81-4553-90b4-4187436acf78"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="3b7b2cd4-09a9-46a0-9996-ee8c2703d068"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="c7c8ab47-30e5-4ded-9296-9931b5af0f2d"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="iEmpleado" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fd697cce-f14d-4558-aca6-8d67e141b6ed">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     empleado."id_empleado" AS empleado_id_empleado,
+     empleado."nombre" AS empleado_nombre,
+     empleado."apellidos" AS empleado_apellidos,
+     empleado."sexo" AS empleado_sexo,
+     empleado."telefono" AS empleado_telefono,
+     empleado."direccion" AS empleado_direccion,
+     empleado."email" AS empleado_email,
+     empleado."fecha_ingreso" AS empleado_fecha_ingreso,
+     empleado."salario" AS empleado_salario,
+     empleado."motos_vendidas" AS empleado_motos_vendidas
+FROM
+     "public"."empleado" empleado]]>
+	</queryString>
+	<field name="empleado_id_empleado" class="java.lang.Integer"/>
+	<field name="empleado_nombre" class="java.lang.String"/>
+	<field name="empleado_apellidos" class="java.lang.String"/>
+	<field name="empleado_sexo" class="java.lang.String"/>
+	<field name="empleado_telefono" class="java.lang.String"/>
+	<field name="empleado_direccion" class="java.lang.String"/>
+	<field name="empleado_email" class="java.lang.String"/>
+	<field name="empleado_fecha_ingreso" class="java.lang.String"/>
+	<field name="empleado_salario" class="java.lang.Double"/>
+	<field name="empleado_motos_vendidas" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="5d6a4151-4a15-447d-aded-3a09b9d2cadb"/>
+				<staticText>
+					<reportElement x="20" y="20" width="495" height="43" forecolor="#FFFFFF" uuid="5efd37b5-ea17-455e-9b29-fc3c141f0a0b"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[REPORTE DE EMPLEADOS]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="122833f2-d6a5-4196-ae85-5c17a51ede88"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="debc5e67-eef7-45a1-888c-903b3a80d851"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="55" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="255894bf-9446-4bd9-9eeb-0cba27afd36b"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="110" y="0" width="71" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0aab0764-fdee-4aad-842d-75dc5b62aefa"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="181" y="0" width="39" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3c29ecfd-d8f3-43d0-bc3d-6f7e5af26a02"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="220" y="0" width="65" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6516654c-95ec-472f-a640-7cca62c18cd6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="285" y="0" width="68" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="993d07d9-f83e-40b8-ba11-54943fee9b1d"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="353" y="0" width="43" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="7bfd3a60-5c98-495c-ba0d-4144fae153ce"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[e-mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="396" y="0" width="44" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a62d2e98-6c91-423b-96a3-9dc2cebbc0a0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="440" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9277daac-415a-44a8-ad9e-fdcdb13ebe46"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="495" y="0" width="60" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2466836d-45b3-4b0a-87d1-1445785e9ab9"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Motos vendidas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="64be9a71-7dd8-41ba-8cc2-d3f867318d83"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="55" height="20" uuid="3c0bcead-a82a-479d-8434-6f9092b1134d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado_id_empleado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="55" y="0" width="55" height="20" uuid="37840253-ea0e-4f1a-8e16-eab02d70bd52"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado_nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="110" y="0" width="71" height="20" uuid="3483686e-5deb-433b-9d36-88367625a717"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="181" y="0" width="39" height="20" uuid="eb5bbc96-0fa6-429f-a136-afb988ccec97"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado_sexo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="220" y="0" width="65" height="20" uuid="2818773f-cc44-47b0-81db-fb8f505ff863"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado_telefono}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="285" y="0" width="68" height="20" uuid="36b32f21-8363-4127-9c5f-49273eeebdde"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado_direccion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="353" y="0" width="43" height="20" uuid="c812e23e-7fc4-411d-b452-cd7fe8d68ce1"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado_email}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="396" y="0" width="44" height="20" uuid="c1d4f736-64b8-4209-8643-017257880aa3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado_fecha_ingreso}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="440" y="0" width="55" height="20" uuid="449deac5-d97e-48f8-b6fe-a6b010aff581"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado_salario}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="495" y="0" width="55" height="20" uuid="6c321b7f-426d-4536-88ab-2a3c2609ca95"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empleado_motos_vendidas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="6114faaf-530c-4d5e-9055-45a8b1c81b37"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["PÁGINA "+$V{PAGE_NUMBER}+" DE "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="d57541bf-14a3-4d2d-8935-e27871ec0ba8"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="115a03c8-0a8b-430c-a9fe-7c9a85b1871b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

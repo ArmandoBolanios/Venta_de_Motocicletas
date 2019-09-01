@@ -1,0 +1,97 @@
+//++======---------------------------++-----------------------------------------    
+    /*/OBTENER TODOS LOS REGISTROS DE MOTOCICLETA CON SU CATEGORIA
+    //MOSTRARLOS EN LA TABLA 
+    public DefaultTableModel getTablaProducto() {
+        
+        int registros = 0;
+        String columnas[] = {"Código Moto", "Marca", "Modelo","Color","Precio Venta", "Stock", "Categoria"};
+        
+        //se obtiene la cantidad de tegistros existentes en la tabla  y se almacena en la variable registros...
+        //MADARLOS A Principal para Motocicletas...
+        try {
+            PreparedStatement pstm = dtb.getConexion().prepareStatement("SELECT count(*) AS TOTAL FROM motocicleta");
+            try (ResultSet reslt = pstm.executeQuery()) {
+                reslt.next();
+                registros = reslt.getInt("total");
+            }
+        }catch(SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        
+        //se crea una matriz con filas y columnas que necesitemos ...
+        Object datos[][] = new String[registros][12];
+        try {
+            PreparedStatement pstm = dtb.getConexion().prepareStatement("SELECT * FROM motocicleta INNER JOIN categoria ON "
+                    + "motocicleta.id_cat = categoria.id_cat");
+            ResultSet reslt = pstm.executeQuery();
+            
+            int i=0;
+            while(reslt.next()) {
+                datos[i][0] = reslt.getString("codigo_moto");
+                datos[i][1] = reslt.getString("marca");
+                datos[i][2] = reslt.getString("modelo");
+                datos[i][3] = reslt.getString("color");
+                datos[i][4] = reslt.getString("preciovt" );
+                datos[i][5] = reslt.getString("stock");
+                datos[i][6] = reslt.getString("id_cat") + " - " + reslt.getString("nombre_categoria");
+                
+                i++;    
+            }
+            reslt.close();
+            this.tablamodelo.setDataVector(datos, columnas);
+        }catch(SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return this.tablamodelo;
+    }*/
+//++-------++-------++-------++------++--------++--------++-----++----++--------
+/*obtener la lista de categorias...
+    MANDARLOS para Motocicletas...  
+    */      
+    /*public DefaultComboBoxModel getListaCategorias() {
+        DefaultComboBoxModel combo = new DefaultComboBoxModel();
+        
+        try {
+            PreparedStatement pstm = dtb.getConexion().prepareStatement("SELECT * FROM categoria");
+            ResultSet reslt = pstm.executeQuery();
+            
+            while(reslt.next()) {
+                combo.addElement(reslt.getString("id_cat") + "-" + reslt.getString("nombre_categoria"));
+                
+            }
+            reslt.close();
+        }catch(SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        
+        return combo;
+    }
+*/
+//------------++--------------------++-------------------++--------------------- 
+case AGREGAR_PRODUCTO:
+                //se obtiene ID del producto mis motos ...
+                String categorias[] = this.frmproducto.lista_categorias.getSelectedItem().toString().split(" - ");
+                if(this.mimodelo.NuevoProducto(
+                        this.frmproducto.id_producto.getText(), 
+                        this.frmproducto.marca.getText(), 
+                        this.frmproducto.modelo.getText(), 
+                        this.frmproducto.pesokg.getText(), 
+                        this.frmproducto.potencia.getText(), 
+                        this.frmproducto.altura.getText(), 
+                        this.frmproducto.precio_venta.getText(), 
+                        this.frmproducto.cantidad_producto.getText(),
+                        categorias[0].trim(),
+                        this.frmproducto.color.getText()
+                         
+                        ) )  {
+                    //actualiza el JTable ...
+                    this.frmproducto.TABLA_PRODUCTO.setModel(this.mimodelo.getTablaProducto());
+                    JOptionPane.showMessageDialog(null, "Nuevo producto agregado :) ");
+                    
+                }
+                else 
+                    JOptionPane.showMessageDialog(null, "Error: verifique los datos del nuevo producto :(");
+           
+                break;
+
+//------------------------------------------------------------------------------------------------------------

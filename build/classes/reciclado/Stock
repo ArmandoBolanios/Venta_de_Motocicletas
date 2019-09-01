@@ -1,0 +1,58 @@
+private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    if(!registrar_nuevo.getText().equals("0") && !registrar_nuevo.getText().equals(""))
+        {
+            
+             //esta es una clase con su instancia aqui abajo ...
+**      --> control_existencias ctrl = new control_existencias();                                          ** <<--
+            if( ctrl.update_stock(registrar_nuevo.getText(),combo_articulo.getSelectedItem().toString()))
+            {
+                JOptionPane.showMessageDialog(this, "Se actualizo correctamente el stock");
+                registrar_nuevo.setText("0");     
+                Object[][] datos = ctrl.datos_articulo(combo_articulo.getSelectedItem().toString());
+                nuevo_stock.setText(datos[0][2].toString()); 
+                
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Error al actualizar");
+            }
+            }
+            
+            else
+            {
+            JOptionPane.showMessageDialog(this, "La cantidad a ingresar no es valida");
+            }
+    }
+
+
+//-----------------------------------------------------------------------------------------
+public boolean update_stock(String stock, String id_articulo)
+      {
+** -->  private Sentencias_sql sen;                                                                    **<----
+          String campos[] = {stock,id_articulo};           
+          return sen.insertar(campos, "update articulo set stock = stock + ? where id_articulo = ?;");
+      
+      }
+//-----------------------------------------------------------------------------------------
+public Object[][] datos_articulo(String id_articulo)
+     {
+        String[] columnas={"descripcion","precio_venta","stock"};
+        Object[][] resultado = sen.GetTabla(columnas, "articulo", "select descripcion, precio_venta, stock from articulo where id_articulo='"+id_articulo+"';");
+        return resultado;
+      }
+//-----------------------------------------------------------------------------------------
+public boolean insertar(String datos[], String insert){
+      boolean estado = false;
+       try {
+            ps = con.conectado().prepareStatement(insert);
+            for(int i=0; i<=datos.length-1;i++){
+                ps.setString(i+1, datos[i]);
+            }
+            ps.execute();
+            ps.close();
+            estado = true;
+         }catch(SQLException e){
+         System.out.println(e);
+      }
+       return estado;
+   }

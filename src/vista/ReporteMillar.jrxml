@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="792" pageHeight="1224" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="738835e7-2774-4b19-8f87-169262323936">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="codigo" class="java.lang.String"/>
+	<field name="marca" class="java.lang.String"/>
+	<field name="modelo" class="java.lang.String"/>
+	<field name="color" class="java.lang.String"/>
+	<field name="categoria" class="java.lang.String"/>
+	<field name="factura" class="java.lang.String"/>
+	<field name="proveedor" class="java.lang.String"/>
+	<field name="costo" class="java.lang.String"/>
+	<field name="stock" class="java.lang.String"/>
+	<field name="precio" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7e97f1b9-5913-47b1-8975-6163937b46c6" x="180" y="18" width="180" height="20"/>
+				<textElement/>
+				<text><![CDATA[REORTE DE MOTOCICLETAS]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="4ec49e86-1fb8-47de-8bdc-772e5a8a1724" x="626" y="38" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="79bf8c97-98d2-4ef3-9a36-60ee72a960be" x="626" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="14" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="6390382b-94d5-4522-8ab6-8c9430f6b5a9" x="8" y="2" width="42" height="20"/>
+				<textElement/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e72b55f2-a1a9-4da6-b8de-5d4b29898d05" x="62" y="2" width="72" height="20"/>
+				<textElement/>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9992726e-cfe1-4b92-8920-b99d81ee4bc3" x="138" y="2" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f80e9b3b-93a3-4e4a-a5ab-a94cbad635d7" x="217" y="2" width="55" height="20"/>
+				<textElement/>
+				<text><![CDATA[Color]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0053f642-dbf6-40b2-b7cd-1382b27e4157" x="279" y="2" width="58" height="20"/>
+				<textElement/>
+				<text><![CDATA[Categoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0888ec28-7a66-40e1-aa9a-46e4386a38b7" x="352" y="2" width="58" height="20"/>
+				<textElement/>
+				<text><![CDATA[Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6f7a1cf0-5d53-4c81-aa82-0c85639961d2" x="410" y="2" width="82" height="20"/>
+				<textElement/>
+				<text><![CDATA[Proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5cba91ac-5791-49a8-a8fe-57660ca5c181" x="505" y="0" width="88" height="20"/>
+				<textElement/>
+				<text><![CDATA[Costo: $]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5c3fb54b-b2b2-4388-b07a-867dda124524" x="604" y="0" width="48" height="20"/>
+				<textElement/>
+				<text><![CDATA[Stock]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="83439fa1-36b2-4c4f-b536-ebbd783a2624" x="664" y="0" width="88" height="20"/>
+				<textElement/>
+				<text><![CDATA[Precio: $]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement uuid="0b29fae7-0b82-41bf-b323-d8840391c294" x="8" y="10" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9ed88d13-e7ee-4bc0-ab31-1a29ed8ed468" x="62" y="10" width="72" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{marca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f912a8a2-d668-4960-b15c-9e094a1f92d2" x="138" y="10" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="049d6490-80f7-451b-bc16-da642feabf86" x="217" y="10" width="55" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{color}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9503207d-0541-4355-a76f-d316b4ada126" x="279" y="9" width="58" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{categoria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="939e256c-5259-40b9-b6df-9c246a3a9e23" x="352" y="8" width="58" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5b731610-5b34-478f-86f0-995c076a448a" x="410" y="9" width="82" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{proveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="67c9f1e0-b1f5-4188-8167-e912b068aede" x="505" y="8" width="88" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{costo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2949c16c-df43-4160-b77f-37e89174ee1c" x="604" y="8" width="48" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{stock}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="55f3ac2d-1a35-4a23-a795-06e96fe3309e" x="664" y="8" width="88" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="71" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

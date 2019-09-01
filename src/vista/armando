@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="88d8012b-ba81-43a1-9904-d5f292f6f670">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     venta."codigo_venta" AS venta_codigo_venta,
+     venta."cedula" AS venta_cedula,
+     venta."id_empleado" AS venta_id_empleado,
+     venta."codigo_moto" AS venta_codigo_moto,
+     venta."cantidad_venta" AS venta_cantidad_venta,
+     venta."precio_venta" AS venta_precio_venta,
+     venta."valor_total" AS venta_valor_total,
+     venta."fecha_venta" AS venta_fecha_venta
+FROM
+     "public"."venta" venta]]>
+	</queryString>
+	<field name="venta_codigo_venta" class="java.lang.Integer"/>
+	<field name="venta_codigo_moto" class="java.lang.Integer"/>
+	<field name="venta_cantidad_venta" class="java.lang.Integer"/>
+	<field name="venta_precio_venta" class="java.lang.Double"/>
+	<field name="venta_valor_total" class="java.lang.Double"/>
+	<field name="venta_fecha_venta" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement uuid="5ea34b28-c9e5-4401-83f5-54b4e8b92bc6" x="-20" y="0" width="595" height="64"/>
+				<imageExpression><![CDATA["wood.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="2a3360d3-7e99-4830-a057-fb55a1eab7e6" style="Title" x="0" y="5" width="263" height="33"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Wood Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2d06399f-9425-4d9e-a933-1de16acd163f" style="SubTitle" x="63" y="39" width="200" height="22" forecolor="#FFFFFF"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Wood SubTitle]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement uuid="6e137c7f-6d8a-4c40-9c44-05b190ee5165" positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="3111fbcf-496a-4370-9978-640761befac5" style="Column header" x="0" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[venta_codigo_venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0c600295-5f62-400c-abe5-c5186284971f" style="Column header" x="92" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[venta_codigo_moto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e425eaa8-e884-41fc-8242-2479241aa4ad" style="Column header" x="184" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[venta_cantidad_venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7bc7cd34-c032-4d53-848a-7d4befb0e234" style="Column header" x="276" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[venta_precio_venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="452f74a6-389e-4176-8bc4-f3ced3e9d79a" style="Column header" x="368" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[venta_valor_total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="21ffca29-43c5-4836-a248-d409ed9f6a95" style="Column header" x="460" y="19" width="92" height="15"/>
+				<textElement/>
+				<text><![CDATA[venta_fecha_venta]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="d2d33745-7c8c-4b49-811f-d35cad6406c6" positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="f33ad38f-2534-4bc3-866f-fb3c1cb25d5f" style="Detail" x="0" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{venta_codigo_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6b553a4f-6b94-4b40-ae46-2f3341b8e2d8" style="Detail" x="92" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{venta_codigo_moto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2971f201-452e-4694-aead-b97c015cac31" style="Detail" x="184" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{venta_cantidad_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="337d3194-e079-4faa-9cef-7d16e4fbac15" style="Detail" x="276" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{venta_precio_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ba993152-5256-4e12-b612-a499bb033123" style="Detail" x="368" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{venta_valor_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="904e6142-04d4-4a44-85cd-f92eb1f0b7e9" style="Detail" x="460" y="0" width="92" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{venta_fecha_venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="efbb1618-6e47-4366-a293-34d3cd892321" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="88e14ac9-bceb-42c6-bd9b-a67620e15cea" style="Column header" x="433" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="7fe6b940-6ae0-48ae-84e7-d9007d3ea002" style="Column header" x="513" y="0" width="40" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="b19a61ca-f4da-4ff4-8b2f-55355f27ca71" style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
